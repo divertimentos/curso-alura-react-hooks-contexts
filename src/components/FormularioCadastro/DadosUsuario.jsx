@@ -1,9 +1,13 @@
 import React from 'react';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button, Typography } from '@material-ui/core';
 
-function DadosUsuario() {
+function DadosUsuario({aoEnviar}) {
   return (
-    <form>
+    <form onSubmit={(event) => {
+      event.preventDefault();
+      aoEnviar();
+    }}>
+      <Typography variant="subtitle2" align="center">Tela 1/3: Dados do Usuário</Typography>
       <TextField
         variant="outlined"
         margin="normal"

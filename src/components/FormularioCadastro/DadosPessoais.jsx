@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, Switch, FormControlLabel } from "@material-ui/core";
+import { TextField, Button, Switch, FormControlLabel, Typography } from "@material-ui/core";
 
 function DadosPessoais({aoEnviar, validarCPF}) {
   const [nome, setNome] = useState("");
@@ -15,6 +15,7 @@ function DadosPessoais({aoEnviar, validarCPF}) {
         aoEnviar({nome, sobrenome, cpf, novidades, promocoes});
       }}
     >
+      <Typography variant="subtitle2" align="center">Tela 2/3: Dados Pessoais</Typography>
       <TextField
         value={nome}
         onChange={(event) => {

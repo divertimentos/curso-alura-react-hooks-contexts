@@ -20,8 +20,8 @@ function aoEnviarForm(dados){
 }
 
 function validarCPF(cpf){
-  if(cpf.length !== 11){
-    return {valido:false, texto:"CPF deve ter 11 digitos."}
+  if(cpf.length !== 3){
+    return {valido:false, texto:"CPF deve ter exatamente 3 digitos."}
   }else{
     return {valido:true, texto:""}
   }

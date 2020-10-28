@@ -7,12 +7,16 @@ import { Typography } from "@material-ui/core";
 function FormularioCadastro({ aoEnviar, validarCPF }) {
   const [etapaAtual, setEtapaAtual] = useState(0);
 
+  function proximo() {
+    setEtapaAtual(etapaAtual + 1);
+  }
+
   function formularioAtual(etapa) {
     switch (etapa) {
       case 0:
-        return <DadosUsuario />
+        return <DadosUsuario aoEnviar={proximo} />
       case 1:
-        return <DadosPessoais aoEnviar={aoEnviar} validarCPF={validarCPF} />
+        return <DadosPessoais aoEnviar={proximo} validarCPF={validarCPF} />
       case 2:
         return <DadosEntrega />
       default:
@@ -27,9 +31,5 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
     </>
   );
 }
-
-{/* <DadosPessoais aoEnviar={aoEnviar} validarCPF={validarCPF} /> */ }
-
-
 
 export default FormularioCadastro;
