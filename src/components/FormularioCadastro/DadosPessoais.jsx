@@ -15,7 +15,6 @@ function DadosPessoais({aoEnviar, validarCPF}) {
         aoEnviar({nome, sobrenome, cpf, novidades, promocoes});
       }}
     >
-      <Typography variant="subtitle2" align="center">Tela 2/3: Dados Pessoais</Typography>
       <TextField
         value={nome}
         onChange={(event) => {

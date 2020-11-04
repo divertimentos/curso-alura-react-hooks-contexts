@@ -10,7 +10,6 @@ function DadosUsuario({ aoEnviar }) {
       event.preventDefault();
       aoEnviar({ email, senha });
     }}>
-      <Typography variant="subtitle2" align="center">Tela 1/3: Dados do Usuário</Typography>
       <TextField
         value={email}
         onChange={(event) => {

@@ -14,7 +14,6 @@ function DadosEntrega({ aoEnviar }) {
       event.preventDefault();
       aoEnviar({ cep, endereco, numero, estado, cidade })
     }}>
-      <Typography variant="subtitle2" align="center">Tela 3/3: Dados de Entrega</Typography>
       <TextField
         value={cep}
         onChange={(event) => {
