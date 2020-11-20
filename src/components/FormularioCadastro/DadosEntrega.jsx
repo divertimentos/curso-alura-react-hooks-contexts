@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { TextField, Button, Typography } from '@material-ui/core';
+import { TextField, Button, Typography } from "@material-ui/core";
 
 function DadosEntrega({ aoEnviar }) {
   const [cep, setCep] = useState("");
@@ -10,14 +10,16 @@ function DadosEntrega({ aoEnviar }) {
   const [cidade, setCidade] = useState("");
 
   return (
-    <form onSubmit={(event) => {
-      event.preventDefault();
-      aoEnviar({ cep, endereco, numero, estado, cidade })
-    }}>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        aoEnviar({ cep, endereco, numero, estado, cidade });
+      }}
+    >
       <TextField
         value={cep}
         onChange={(event) => {
-          setCep(event.target.value)
+          setCep(event.target.value);
         }}
         id="cep"
         label="CEP"
@@ -29,7 +31,7 @@ function DadosEntrega({ aoEnviar }) {
       <TextField
         value={endereco}
         onChange={(event) => {
-          setEndereco(event.target.value)
+          setEndereco(event.target.value);
         }}
         variant="outlined"
         margin="normal"
@@ -42,7 +44,7 @@ function DadosEntrega({ aoEnviar }) {
       <TextField
         value={numero}
         onChange={(event) => {
-          setNumero(event.target.value)
+          setNumero(event.target.value);
         }}
         variant="outlined"
         margin="normal"
@@ -54,7 +56,7 @@ function DadosEntrega({ aoEnviar }) {
       <TextField
         value={estado}
         onChange={(event) => {
-          setEstado(event.target.value)
+          setEstado(event.target.value);
         }}
         variant="outlined"
         margin="normal"
@@ -66,7 +68,7 @@ function DadosEntrega({ aoEnviar }) {
       <TextField
         value={cidade}
         onChange={(event) => {
-          setCidade(event.target.value)
+          setCidade(event.target.value);
         }}
         variant="outlined"
         margin="normal"
@@ -80,7 +82,7 @@ function DadosEntrega({ aoEnviar }) {
         Finalizar Cadastro
       </Button>
     </form>
-  )
+  );
 }
 
 export default DadosEntrega;

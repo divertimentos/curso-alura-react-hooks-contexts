@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { TextField, Button, Switch, FormControlLabel, Typography } from "@material-ui/core";
-import ValidacoesCadastro from '../../contexts/ValidacoesCadastro'
+import { TextField, Button, Switch, FormControlLabel } from "@material-ui/core";
+import ValidacoesCadastro from "../../contexts/ValidacoesCadastro";
 import useErros from "../../hooks/useErros";
 
 function DadosPessoais({ aoEnviar }) {
@@ -16,7 +16,7 @@ function DadosPessoais({ aoEnviar }) {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if(possoEnviar) {
+        if (possoEnviar) {
           aoEnviar({ nome, sobrenome, cpf, novidades, promocoes });
         }
       }}
@@ -53,7 +53,6 @@ function DadosPessoais({ aoEnviar }) {
         onChange={(event) => {
           setCpf(event.target.value);
         }}
-
         onBlur={validarCampos}
         error={!erros.cpf.valido}
         helperText={erros.cpf.texto}
