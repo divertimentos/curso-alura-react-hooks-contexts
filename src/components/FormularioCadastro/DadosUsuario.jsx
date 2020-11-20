@@ -1,45 +1,28 @@
-import React, {useContext, useState} from 'react';
-import { TextField, Button, Typography } from '@material-ui/core';
-import ValidacoesCadastro from '../../contexts/ValidacoesCadastro';
+import React, { useContext, useState } from "react";
+import { TextField, Button } from "@material-ui/core";
+import ValidacoesCadastro from "../../contexts/ValidacoesCadastro";
 import useErros from "../../hooks/useErros";
 
 function DadosUsuario({ aoEnviar }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const validacoes = useContext(ValidacoesCadastro)
-  // const [erros, setErros] = useState({ senha: { valido: true, texto: "" } })
-  const [erros, validarCampos] = useErros(validacoes);
+  const validacoes = useContext(ValidacoesCadastro);
 
-
-  function validarCampos(event) {
-    const { name, value } = event.target
-    const novoEstado = { ...erros }
-    novoEstado[name] = validacoes[name](value);
-    setErros(novoEstado);
-  }
-
-  function possoEnviar() {
-    let posso = true;
-    for (let campo in erros) {
-      if (!erros[campo].valido) {
-        posso = false
-        return posso
-      }
-    }
-    return posso
-  }
+  const [erros, validarCampos, possoEnviar] = useErros(validacoes);
 
   return (
-    <form onSubmit={(event) => {
-      event.preventDefault();
-      if (possoEnviar()) {
-        aoEnviar({ email, senha });
-      }
-    }}>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (possoEnviar()) {
+          aoEnviar({ email, senha });
+        }
+      }}
+    >
       <TextField
         value={email}
         onChange={(event) => {
-          setEmail(event.target.value)
+          setEmail(event.target.value);
         }}
         variant="outlined"
         margin="normal"
@@ -48,12 +31,12 @@ function DadosUsuario({ aoEnviar }) {
         name="email"
         label="E-mail"
         type="email"
-      // required
+        // required
       />
       <TextField
         value={senha}
         onChange={(event) => {
-          setSenha(event.target.value)
+          setSenha(event.target.value);
         }}
         variant="outlined"
         margin="normal"
@@ -65,17 +48,13 @@ function DadosUsuario({ aoEnviar }) {
         name="senha"
         label="Senha"
         type="password"
-      // required
+        // required
       />
-      <Button
-        variant="contained"
-        margin="normal"
-        type="submit"
-        color="primary">
+      <Button variant="contained" margin="normal" type="submit" color="primary">
         Próximo
       </Button>
     </form>
-  )
+  );
 }
 
 export default DadosUsuario;
